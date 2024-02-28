@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ededemog <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:14:17 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/28 17:08:13 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:23:15 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	mallocizer(char **words_v, int pos, size_t len)
 	return (0);
 }
 
-int    append(char **words_v, const char *s, char c)
+int	append(char **words_v, const char *s, char c)
 {
 	size_t	len;
 	int	pos;
