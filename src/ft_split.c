@@ -6,14 +6,31 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:14:17 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/28 17:23:15 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:07:04 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "../push_swap.h"
 
-int	count_words(char const *s, char c)
+static size_t	ft_strlcpy(char*dest, const char *src, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (src[i] && size > 0 && i < size - 1)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	if (size > 0)
+		dest[i] = '\0';
+	while (src[i])
+		i++;
+	return (i);
+}
+
+static int	count_words(char const *s, char c)
 {
 	int	i;
 	int	j;
@@ -36,7 +53,7 @@ int	count_words(char const *s, char c)
 	return (j);
 }
 
-int	mallocizer(char **words_v, int pos, size_t len)
+static int	mallocizer(char **words_v, int pos, size_t len)
 {
 	int	i;
 
@@ -52,11 +69,11 @@ int	mallocizer(char **words_v, int pos, size_t len)
 	return (0);
 }
 
-int	append(char **words_v, const char *s, char c)
+static int	append(char **words_v, const char *s, char c)
 {
-	size_t	len;
-	int	pos;
-	const char *start;
+	size_t		len;
+	int			pos;
+	const char	*start;
 
 	pos = 0;
 	start = s;
@@ -98,15 +115,4 @@ char	**ft_split(const char *s, char c)
 	if (append(words_v, s, c))
 		return (NULL);
 	return (words_v);
-}
-
-int	main()
-{
-	char	*s = " Bonjour     Emre. ca va bien ???? ";
-	char	**v = ft_split(s, ' ');
-
-	while (*v)
-	printf("%s\n", *v++);
-	
-	return (0);
 }
