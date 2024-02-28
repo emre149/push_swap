@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 21:07:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/28 23:06:36 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/02/28 23:10:31 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static size_t	total_len(int argc, char **argv)
 	return (total_len);
 }
 
-char	*join(int argc, char **argv, size_t total_len)
+char	*join_to_split(int argc, char **argv, size_t total_len)
 {
 	char		*new;
 	char		*actual_pos;
