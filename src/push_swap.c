@@ -3,11 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ededemog <ededemog@42.student.fr>          +#+  +:+       +#+        */
+/*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 14:51:32 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/26 14:52:03 by ededemog         ###   ########.fr       */
+/*   Created: 2024/02/27 00:14:25 by ededemog          #+#    #+#             */
+/*   Updated: 2024/02/27 00:15:39 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ""
+#include "../push_swap.h"
+
+int main(int argc, char **argv)
+{
+
+}
