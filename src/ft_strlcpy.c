@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ededemog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 00:14:25 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/28 15:07:48 by ededemog         ###   ########.fr       */
+/*   Created: 2024/02/28 15:47:31 by ededemog          #+#    #+#             */
+/*   Updated: 2024/02/28 16:19:56 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int main(int argc, char **argv)
+size_t	ft_strlcpy(char*dest, const char *src, size_t size)
 {
-    t_list  *stack_a;
-    t_list  *stack_b;
+	size_t	i;
 
-    stack_a = NULL;
-    stack_b = NULL;
-    if (argc < 2 || argc == 2 && !argv[1][0])
-        return (1);
-    else if (argc == 2)
-        argv = ft_split(argv[1], ' ');
+	i = 0;
+	while (src[i] && size > 0 && i < size - 1)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	if (size > 0)
+		dest[i] = '\0';
+	while (src[i])
+		i++;
+	return (i);
 }

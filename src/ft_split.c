@@ -6,7 +6,7 @@
 /*   By: ededemog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:14:17 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/26 19:47:26 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:08:13 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,41 +36,77 @@ int	count_words(char const *s, char c)
 	return (j);
 }
 
-int main() {
-    char test_string1[] = "Ceci est un test";
-    char test_string2[] = "  Ceci est un test avec espaces multiples";
-    char test_string3[] = "Ceci,est,un,test,avec,virgules";
-    char test_string4[] = "Ceci est un test avec des caractères spéciaux !@#$%^&*()";
-
-    char delimiter1 = ' ';
-    char delimiter2 = ',';
-
-    printf("Test  1: Nombre de mots dans \"%s\" avec l'espace comme séparateur : %d\n", test_string1, count_words(test_string1, delimiter1));
-    printf("Test  2: Nombre de mots dans \"%s\" avec l'espace comme séparateur : %d\n", test_string2, count_words(test_string2, delimiter1));
-    printf("Test  3: Nombre de mots dans \"%s\" avec la virgule comme séparateur : %d\n", test_string3, count_words(test_string3, delimiter2));
-    printf("Test  4: Nombre de mots dans \"%s\" avec l'espace comme séparateur : %d\n", test_string4, count_words(test_string4, delimiter1));
-
-    return  0;
-}
-
-/*
-int	main(int argc, char const **argv)
+int	mallocizer(char **words_v, int pos, size_t len)
 {
-	char str[256];
-	ft_strcpy(str, argv[1]);
-	char	delimiter;
-	int	words;
+	int	i;
 
-	delimiter = ' ';
-	words = count_words(str, delimiter);
-	if (argc > 2)
-		printf("nombres de mots : %d", words);
+	i = 0;
+	words_v[pos] = malloc(len);
+	if (!words_v[pos])
+	{
+		while (i < pos)
+			free(words_v[i++]);
+		free(words_v);
+		return (1);
+	}
 	return (0);
 }
-*/
-/*
-char	**ft_split(char const *s, char c)
+
+int    append(char **words_v, const char *s, char c)
 {
-	
+	size_t	len;
+	int	pos;
+	const char *start;
+
+	pos = 0;
+	start = s;
+	while (*s)
+	{
+		len = 0;
+		while (*s == c && *s)
+			s++;
+		start = s;
+		while (*s != c && *s)
+		{
+			++len;
+			++s;
+		}
+		if (len)
+		{
+			if (mallocizer(words_v, pos, len + 1))
+				return (1);
+			ft_strlcpy(words_v[pos], start, len + 1);
+			pos++;
+		}
+	}
+	return (0);
 }
-*/
+
+char	**ft_split(const char *s, char c)
+{
+	size_t	words;
+	char	**words_v;
+
+	if (!s)
+		return (NULL);
+	words = 0;
+	words = count_words(s, c);
+	words_v = malloc((words + 1) * sizeof(char *));
+	if (!words_v)
+		return (NULL);
+	words_v[words] = NULL; // EOL
+	if (append(words_v, s, c))
+		return (NULL);
+	return (words_v);
+}
+
+int	main()
+{
+	char	*s = " Bonjour     Emre. ca va bien ???? ";
+	char	**v = ft_split(s, ' ');
+
+	while (*v)
+	printf("%s\n", *v++);
+	
+	return (0);
+}
