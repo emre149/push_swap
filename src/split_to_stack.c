@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   split_to_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 17:41:14 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/28 18:43:13 by ededemog         ###   ########.fr       */
+/*   Created: 2024/02/28 18:37:40 by ededemog          #+#    #+#             */
+/*   Updated: 2024/02/28 19:12:53 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-long	ft_atol(const char *str)
+void	split_to_stack(t_list **stack_a, char **argv, bool splitable)
 {
-	int			i;
-	long		nb;
-	long		sign;
+	int		i;
+	long	nb;
 
 	i = 0;
-	nb = 0;
-	sign = 1;
-	while (str[i] && (str[i] == 32 || (str[i] >= 9 && str[i] <= 13)))
-		i++;
-	while (str[i] && str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
-	{
-		nb = nb * 10 + (str[i] - '0');
-		i++;
-	}
-	return (nb * sign);
+	while (argv[i])
 }
