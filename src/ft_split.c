@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:14:17 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/28 18:07:04 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/02/28 20:21:08 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,16 @@ char	**ft_split(const char *s, char c)
 	if (append(words_v, s, c))
 		return (NULL);
 	return (words_v);
+}
+
+#include <stdio.h>
+
+int	main()
+{
+	const char	*s = "bonsoir     emre ca-va ou bien ????????????????????????? ??? ?";
+	char	**v = ft_split(s, ' ');
+
+	while (*v)
+		printf("%s\n", *v++);
+	return 0;
 }
