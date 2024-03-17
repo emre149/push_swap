@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 18:37:40 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/11 14:53:26 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/17 16:51:16 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ long	ft_atol(const char *str)
 	return (nb * sign);
 }
 
-static void		add_node(t_list **stack, int nb)
+static void	add_node(t_list **stack, int nb)
 {
 	t_list	*node;
 	t_list	*last_node;
 
 	if (!stack)
-		return;
+		return ;
 	node = malloc(sizeof(t_list));
 	if (!node)
-		return;
+		return ;
 	node->next = NULL;
 	node->content = nb;
 	if (!(*stack))
