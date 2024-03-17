@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:30:09 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/28 23:10:11 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/11 13:38:10 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdbool.h>
+# include <limits.h>
 # include <stddef.h>
+# include "../ft_printf/ft_printf.h"
 
 typedef struct s_list
 {
@@ -35,6 +37,6 @@ char	*ft_strcpy(char *dest, const char *src);
 
 char	**ft_split(const char *s, char c);
 
-char	*join_to_split(int argc, char **argv, size_t total_len);
+long	ft_atol(const char *str);
 
 #endif
