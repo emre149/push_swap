@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/25 20:01:03 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/28 20:23:49 by ededemog         ###   ########.fr       */
+/*   Created: 2024/03/18 14:23:51 by ededemog          #+#    #+#             */
+/*   Updated: 2024/03/18 14:27:36 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_lstadd_front(t_list **list, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (list && new)
-	{
-		new->next = *list;
-		*list = new;
-	}
+	while (lst && lst->next)
+		lst = lst->next;
+	return (lst);
 }
