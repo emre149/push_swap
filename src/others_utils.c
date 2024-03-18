@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 16:10:05 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/17 16:14:10 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/18 19:00:22 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,4 @@ t_list	*min_of_stack(t_list *stack)
 	}
 	return (min_node);
 }
+

@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:03:35 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/18 15:28:16 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:29:04 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,3 @@ void	rrr(t_list **stack_a, t_list **stack_b, bool status)
 	if (!status)
 		write(1, "rrr\n", 4);
 }
-

@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:30:09 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/17 18:46:45 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/18 18:35:39 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@
 typedef struct s_list
 {
 	int				content;
-	int				pos;
-	int				n_price;
+	int				position;
+	int				cost;
 	bool			above_median;
 	bool			smallest;
+	bool			cheapest;
 	struct s_list	*prev;
 	struct s_list	*next;
 	struct s_list	*target;
@@ -47,6 +48,12 @@ t_list		*min_of_stack(t_list *stack);
 
 t_list		*ft_lstlast(t_list *list);
 
+bool		is_sorted(t_list *stack);
+
+int			stack_len(t_list *stack);
+
+void		current_position(t_list *stack);
+
 void		split_to_stack(t_list **stack_a, char **argv);
 
 void		sa(t_list **stack_a, bool status);
@@ -58,5 +65,27 @@ void		ss(t_list **stack_a, t_list **stack_b, bool status);
 void		pa(t_list **stack_a, t_list **stack_b, bool status);
 
 void		pb(t_list **stack_a, t_list **stack_b, bool status);
+
+void		ra(t_list **stack_a, bool status);
+
+void		rb(t_list **stack_b, bool status);
+
+void		rr(t_list **stack_a, t_list **stack_b, bool status);
+
+void		rra(t_list **stack_a, bool status);
+
+void		rrb(t_list **stack_b, bool status);
+
+void		rrr(t_list **stack_a, t_list **stack_b, bool status);
+
+void		turk_algo(t_list **stack_a, t_list **stack_b);
+
+
+
+void		cheapest_cost(t_list *stack);
+
+void		node_init_a(t_list *stack_a, t_list *stack_b);
+
+t_list		*get_cheapest(t_list *stack);
 
 #endif
