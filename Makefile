@@ -6,14 +6,14 @@
 #    By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/25 18:03:52 by ededemog          #+#    #+#              #
-#    Updated: 2024/02/28 23:12:24 by ededemog         ###   ########.fr        #
+#    Updated: 2024/03/19 18:28:13 by ededemog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pushswap.a
 CC = ccw
 EXEC = prog
-SRCS = ft_atol.c ft_split.c split_to_stack.c join_split.c push_swap.c 
+SRCS = 
 OBJS = $(SRCS:.c=.o)
 AR = ar rc
 RM = rm -f

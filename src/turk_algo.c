@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 16:10:03 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/18 18:49:23 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:12:20 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ static void	cheap_a_to_b(t_list **stack_a, t_list **stack_b)
 	ready_to_push(stack_a, cheapest, 'stack_a');
 	ready_to_push(stack_b, cheapest->target, 'stack_b');
 	pb(stack_b, stack_a, false);
+}
+
+static void	cheap_b_to_a(t_list **stack_a, t_list **stack_b)
+{
+	ready_for_push(stack_a, (*stack_b)->target, "stack_a");
+	pa(stack_a, stack_b, false);
 }
 
 void	turk_algo(t_list **stack_a, t_list **stack_b)

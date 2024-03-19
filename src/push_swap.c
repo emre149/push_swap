@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 00:14:25 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/11 13:32:19 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:53:01 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	split_to_stack(&stack_a, argv + 1);
 	if (!is_sorted(stack_a))
 	{
-		if (s_len(stack_a) == 2)
+		if (stack_len(stack_a) == 2)
 			sa(&stack_a, false);
 		else if (s_len(stack_a) == 3)
 			tri_sort(&stack_a);
