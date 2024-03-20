@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:30:09 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/19 19:50:40 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:01:58 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,24 +67,26 @@ void		tri_sort(t_list **stack_a);
 /*STACKS UTILS*/
 
 int			stack_len(t_list *stack);
-int			ft_strncmp(const char *s1, const char *s2, size_t n);
-bool		is_sorted(t_list *stack);
-t_list		*ft_lstlast(t_list *list);
 t_list		*max_of_stack(t_list *stack);
 t_list		*min_of_stack(t_list *stack);
-t_list		*get_cheapest(t_list *stack);
-void		min_on_top(t_list **stack_a);
-void		ready_for_push(t_list **stack, t_list *top, char stack_name);
-void		current_position(t_list *stack);
-size_t		ft_strlen(const char *str);
+t_list		*ft_lstlast(t_list *list);
+bool		is_sorted(t_list *stack);
 
-/*STACKS INIT*/
+/*NODE INIT*/
 
 void		node_init_a(t_list *stack_a, t_list *stack_b);
 void		node_init_b(t_list *stack_a, t_list *stack_b);
+void		current_position(t_list *stack);
 void		cheapest_cost(t_list *stack);
+void		ready_to_push(t_list **stack, t_list *top, char stack_name);
+t_list		*get_cheapest(t_list *stack);
+
+
+/*STACKS INIT*/
+
 void		split_to_stack(t_list **stack_a, char **argv);
 long		ft_atol(const char *str);
-char		**ft_split(const char *s, char c);
-
+char		**ft_split(char *s, char c);
+void		min_on_top(t_list **stack_a);
+void		head_min(t_list **stack_a);
 #endif

@@ -6,18 +6,11 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 18:37:40 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/17 16:51:16 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:15:16 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-t_list	*ft_lstlast(t_list *list)
-{
-	while (list && list->next)
-		list = list->next;
-	return (list);
-}
 
 long	ft_atol(const char *str)
 {
@@ -30,7 +23,7 @@ long	ft_atol(const char *str)
 	sign = 1;
 	while (str[i] && (str[i] == 32 || (str[i] >= 9 && str[i] <= 13)))
 		i++;
-	if (str[i] && str[i] == '-')
+	if (str[i] && (str[i] == '-' || str[i] == '+'))
 	{
 		if (str[i] == '-')
 			sign = -1;
@@ -77,7 +70,7 @@ void	split_to_stack(t_list **stack_a, char **argv)
 	i = 0;
 	while (argv[i])
 	{
-		if (syntax_errors(argv[i]))
+		if (error_syntax(argv[i]))
 			free_errors(stack_a);
 		nb = ft_atol(argv[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
@@ -86,5 +79,39 @@ void	split_to_stack(t_list **stack_a, char **argv)
 			free_errors(stack_a);
 		add_node(stack_a, (int)nb);
 		i++;
+	}
+}
+
+t_list	*get_cheapest(t_list *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
+
+void	ready_to_push(t_list **stack, t_list *top, char stack_name)
+{
+	while (*stack != top)
+	{
+		if (stack_name == 'b')
+		{
+			if (top->above_median)
+				ra(stack, false);
+			else
+				rra(stack, false);
+		}
+		if (stack_name == 'a')
+		{
+			if (top->above_median)
+				rb(stack, false);
+			else
+				rrb(stack, false);
+		}
 	}
 }

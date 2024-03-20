@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:47:18 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/17 18:06:40 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:55:53 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	swap(t_list **stack)
 {
 	t_list	*tmp;
 
-	if (*stack == NULL || (*stack)->next == NULL)
+	if (!*stack || !(*stack)->next)
 		return ;
 	tmp = (*stack)->next;
 	(*stack)->next = tmp->next;

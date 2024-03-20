@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 16:10:03 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/19 17:12:20 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:32:54 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,26 @@ static void	cheap_a_to_b(t_list **stack_a, t_list **stack_b)
 		rotate_both(stack_a, stack_b, cheapest);
 	else if (!(cheapest->above_median) && !(cheapest->target->above_median))
 		r_rotate_both(stack_a, stack_b, cheapest);
-	ready_to_push(stack_a, cheapest, 'stack_a');
-	ready_to_push(stack_b, cheapest->target, 'stack_b');
+	ready_to_push(stack_a, cheapest, 'a');
+	ready_to_push(stack_b, cheapest->target, 'b');
 	pb(stack_b, stack_a, false);
 }
 
 static void	cheap_b_to_a(t_list **stack_a, t_list **stack_b)
 {
-	ready_for_push(stack_a, (*stack_b)->target, "stack_a");
+	ready_to_push(stack_a, (*stack_b)->target, 'a');
 	pa(stack_a, stack_b, false);
+}
+
+void	head_min(t_list **stack_a)
+{
+	while ((*stack_a)->content != min_of_stack(*stack_a)->content)
+	{
+		if (min_of_stack(*stack_a)->above_median)
+			ra(stack_a, false);
+		else
+			rra(stack_a, false);
+	}
 }
 
 void	turk_algo(t_list **stack_a, t_list **stack_b)
@@ -53,14 +64,16 @@ void	turk_algo(t_list **stack_a, t_list **stack_b)
 	int	len_a;
 
 	len_a = stack_len(*stack_a);
-	if (--len_a > 3 && !is_sorted(*stack_a))
+	if (len_a-- > 3 && !is_sorted(*stack_a))
 		pb(stack_b, stack_a, false);
-	while (--len_a > 3 && !is_sorted(*stack_a))
+	if (len_a-- > 3 && !is_sorted(*stack_a))
+		pb(stack_b, stack_a, false);
+	while (len_a-- > 3 && !is_sorted(*stack_a))
 	{
 		node_init_a(*stack_a, *stack_b);
 		cheap_a_to_b(stack_a, stack_b);
 	}
-	sort_tri(stack_a);
+	tri_sort(stack_a);
 	while (*stack_b)
 	{
 		node_init_b(*stack_a, *stack_b);
