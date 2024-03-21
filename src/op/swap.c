@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:47:18 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/20 18:55:53 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/21 17:53:06 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	sb(t_list **stack_b, bool status)
 
 void	ss(t_list **stack_a, t_list **stack_b, bool status)
 {
-	sa(stack_a, status);
-	sb(stack_b, status);
+	swap(stack_a);
+	swap(stack_b);
 	if (!status)
 		write(1, "ss\n", 3);
 }
