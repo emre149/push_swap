@@ -6,13 +6,13 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:03:35 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/21 17:52:27 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/30 16:00:10 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	rev_rotate(t_list **stack)
+static void	rev_rotate(t_list **stack)
 {
 	t_list	*last_node;
 
@@ -23,6 +23,7 @@ void	rev_rotate(t_list **stack)
 	last_node->next = *stack;
 	last_node->prev = NULL;
 	*stack = last_node;
+	last_node->next->prev = last_node;
 }
 
 void	rra(t_list **stack_a, bool status)

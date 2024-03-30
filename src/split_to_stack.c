@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 18:37:40 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/20 18:15:16 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/30 15:09:36 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,14 @@ void	ready_to_push(t_list **stack, t_list *top, char stack_name)
 {
 	while (*stack != top)
 	{
-		if (stack_name == 'b')
+		if (stack_name == 'a')
 		{
 			if (top->above_median)
 				ra(stack, false);
 			else
 				rra(stack, false);
 		}
-		if (stack_name == 'a')
+		else if (stack_name == 'b')
 		{
 			if (top->above_median)
 				rb(stack, false);

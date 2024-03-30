@@ -6,13 +6,13 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 18:54:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/21 18:13:40 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/30 16:02:59 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	rotate(t_list **stack)
+static void	rotate(t_list **stack)
 {
 	t_list	*tmp;
 

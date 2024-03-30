@@ -6,11 +6,32 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 17:01:15 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/18 17:57:39 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/30 15:20:07 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	current_position(t_list *stack)
+{
+	int	i;
+	int	median;
+
+	i = 0;
+	if (!stack)
+		return ;
+	median = stack_len(stack) / 2;
+	while (stack)
+	{
+		stack->position = i;
+		if (i <= median)
+			stack->above_median = true;
+		else
+			stack->above_median = false;
+		stack = stack->next;
+		++i;
+	}
+}
 
 static void	set_target_a(t_list *stack_a, t_list *stack_b)
 {
