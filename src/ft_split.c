@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:14:17 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/31 17:04:07 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/31 17:16:46 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,34 @@
 
 static int	count_words(char *str, char delimeter)
 {
-	int	words;
-	bool	isWord;
+	int		words;
+	bool	is_word;
 
 	words = 0;
 	while (*str)
 	{
-		isWord = false;
+		is_word = false;
 		while (*str == delimeter)
 			++str;
 		while (*str != delimeter && *str)
 		{
-			if (!isWord)
+			if (!is_word)
 			{
 				++words;
-				isWord = true;
+				is_word = true;
 			}
 			++str;
 		}
 	}
 	return (words);
 }
-static char *get_next_word(char *str, char delimeter)
+
+static char	*get_next_word(char *str, char delimeter)
 {
 	static int	cursor = 0;
-	char	*next;
-	int		i;
-	int		len;
+	char		*next;
+	int			i;
+	int			len;
 
 	i = 0;
 	len = 0;
@@ -60,8 +61,8 @@ static char *get_next_word(char *str, char delimeter)
 char	**ft_split(char *str, char delimeter)
 {
 	char	**result_array;
-	int	words_count;
-	int	i;
+	int		words_count;
+	int		i;
 
 	i = 0;
 	words_count = count_words(str, delimeter);
@@ -78,7 +79,7 @@ char	**ft_split(char *str, char delimeter)
 			if (!result_array[i])
 				return (NULL);
 			result_array[i++][0] = '\0';
-			continue;
+			continue ;
 		}
 		result_array[i++] = get_next_word(str, delimeter);
 	}

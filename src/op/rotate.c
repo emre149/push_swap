@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 18:54:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/31 17:09:27 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/31 17:17:58 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	rotate(t_list **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	last_node = ft_lstlast(*stack); 
+	last_node = ft_lstlast(*stack);
 	last_node->next = *stack;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
