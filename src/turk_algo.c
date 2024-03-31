@@ -6,27 +6,11 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 16:10:03 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/20 18:32:54 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/31 16:35:19 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-static void	rotate_both(t_list **stack_a, t_list **stack_b, t_list *cheapest)
-{
-	while (*stack_b != cheapest->target && *stack_a != cheapest)
-		rr(stack_a, stack_b, false);
-	current_position(*stack_a);
-	current_position(*stack_b);
-}
-
-static void	r_rotate_both(t_list **stack_a, t_list **stack_b, t_list *cheapest)
-{
-	while (*stack_b != cheapest->target && *stack_a != cheapest)
-		rrr(stack_a, stack_b, false);
-	current_position(*stack_a);
-	current_position(*stack_b);
-}
 
 static void	cheap_a_to_b(t_list **stack_a, t_list **stack_b)
 {
@@ -48,7 +32,7 @@ static void	cheap_b_to_a(t_list **stack_a, t_list **stack_b)
 	pa(stack_a, stack_b, false);
 }
 
-void	head_min(t_list **stack_a)
+static void	head_min(t_list **stack_a)
 {
 	while ((*stack_a)->content != min_of_stack(*stack_a)->content)
 	{

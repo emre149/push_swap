@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:03:35 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/30 16:00:10 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/30 18:36:02 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static void	rev_rotate(t_list **stack)
 {
-	t_list	*last_node;
+	t_list	*last;
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	last_node = ft_lstlast(*stack);
-	last_node->prev->next = NULL;
-	last_node->next = *stack;
-	last_node->prev = NULL;
-	*stack = last_node;
-	last_node->next->prev = last_node;
+	last = ft_lstlast(*stack);
+	last->prev->next = NULL;
+	last->next = *stack;
+	last->prev = NULL;
+	*stack = last;
+	last->next->prev = last;
 }
 
 void	rra(t_list **stack_a, bool status)
@@ -46,4 +46,12 @@ void	rrr(t_list **stack_a, t_list **stack_b, bool status)
 	rev_rotate(stack_b);
 	if (!status)
 		write(1, "rrr\n", 4);
+}
+
+void	r_rotate_both(t_list **stack_a, t_list **stack_b, t_list *cheapest)
+{
+	while (*stack_b != cheapest->target && *stack_a != cheapest)
+		rrr(stack_a, stack_b, false);
+	current_position(*stack_a);
+	current_position(*stack_b);
 }

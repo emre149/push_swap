@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:25:07 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/30 16:43:07 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/31 17:09:45 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ int	stack_len(t_list *stack)
 
 t_list	*ft_lstlast(t_list *list)
 {
-	while (list && list->next)
+	if (!list)
+		return (NULL);
+	while (list->next)
 		list = list->next;
 	return (list);
 }

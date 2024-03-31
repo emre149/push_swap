@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 18:10:37 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/30 16:03:06 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/31 17:07:07 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ static void	push(t_list **dest, t_list **src)
 	if (!*dest)
 	{
 		*dest = push_node;
+		push_node->next = NULL;
+	}
+	else
+	{
+		push_node->next = *dest;
 		push_node->next->prev = push_node;
 		*dest = push_node;
 	}

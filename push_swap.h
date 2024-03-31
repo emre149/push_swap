@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:30:09 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/30 15:24:50 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/31 17:10:36 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct s_list
 	int				position;
 	int				cost;
 	bool			above_median;
-	bool			smallest;
 	bool			cheapest;
 	struct s_list	*prev;
 	struct s_list	*next;
@@ -48,9 +47,11 @@ void		pb(t_list **stack_a, t_list **stack_b, bool status);
 void		ra(t_list **stack_a, bool status);
 void		rb(t_list **stack_b, bool status);
 void		rr(t_list **stack_a, t_list **stack_b, bool status);
+void		rotate_both(t_list **stack_a, t_list **stack_b, t_list *cheapest);
 void		rra(t_list **stack_a, bool status);
 void		rrb(t_list **stack_b, bool status);
 void		rrr(t_list **stack_a, t_list **stack_b, bool status);
+void		r_rotate_both(t_list **stack_a, t_list **stack_b, t_list *cheapest);
 
 /*ERRORS CASES*/
 
@@ -79,6 +80,7 @@ void		node_init_b(t_list *stack_a, t_list *stack_b);
 void		current_position(t_list *stack);
 void		cheapest_cost(t_list *stack);
 void		ready_to_push(t_list **stack, t_list *top, char stack_name);
+void		min_on_top(t_list **stack_a);
 t_list		*get_cheapest(t_list *stack);
 
 
@@ -86,7 +88,5 @@ t_list		*get_cheapest(t_list *stack);
 
 void		split_to_stack(t_list **stack_a, char **argv);
 long		ft_atol(const char *str);
-char		**ft_split(char *s, char c);
-void		min_on_top(t_list **stack_a);
-void		head_min(t_list **stack_a);
+char		**ft_split(char *str, char delimeter);
 #endif
