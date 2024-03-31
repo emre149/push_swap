@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:14:17 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/31 17:16:46 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/31 18:21:34 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,19 @@ char	**ft_split(char *str, char delimeter)
 	}
 	result_array[i] = NULL;
 	return (result_array);
+}
+
+void	free_split(char **array)
+{
+	int	i;
+
+	i = 0;
+	if (array == NULL)
+		return ;
+	while (array[i] != NULL)
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }

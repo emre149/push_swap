@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 00:14:25 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/30 15:29:12 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/31 18:21:04 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if ((argc < 2 || argc == 2) && !argv[1][0])
+	if ((argc == 2 || argc == 2) && !argv[1][0])
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
@@ -33,6 +33,8 @@ int	main(int argc, char **argv)
 		else
 			turk_algo(&stack_a, &stack_b);
 	}
+	if (argc == 2)
+		free_split(argv);
 	free_stacks(&stack_a);
 	return (0);
 }

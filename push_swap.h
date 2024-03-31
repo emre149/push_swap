@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:30:09 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/31 17:10:36 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/03/31 18:21:19 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,10 @@ void		ready_to_push(t_list **stack, t_list *top, char stack_name);
 void		min_on_top(t_list **stack_a);
 t_list		*get_cheapest(t_list *stack);
 
-
 /*STACKS INIT*/
 
 void		split_to_stack(t_list **stack_a, char **argv);
+void		free_split(char **array);
 long		ft_atol(const char *str);
 char		**ft_split(char *str, char delimeter);
 #endif
