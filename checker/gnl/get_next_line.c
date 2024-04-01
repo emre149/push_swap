@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:00:18 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/01 17:21:44 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/01 20:41:49 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static t_list	*stash = NULL;
+	static g_list	*stash = NULL;
 	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
@@ -35,7 +35,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-void	read_to_stash(int fd, t_list **stash)
+void	read_to_stash(int fd, g_list **stash)
 {
 	char	*buf;
 	int		readed;
@@ -58,14 +58,14 @@ void	read_to_stash(int fd, t_list **stash)
 	}
 }
 
-void	add(t_list **stash, char *buf, int already_read)
+void	add(g_list **stash, char *buf, int already_read)
 {
 	int		i;
-	t_list	*last_node;
-	t_list	*new_node;
+	g_list	*last_node;
+	g_list	*new_node;
 
 	i = 0;
-	new_node = malloc(sizeof(t_list));
+	new_node = malloc(sizeof(g_list));
 	if (!new_node)
 		return ;
 	new_node->next = NULL;
@@ -83,11 +83,11 @@ void	add(t_list **stash, char *buf, int already_read)
 		*stash = new_node;
 		return ;
 	}
-	last_node = ft_lstlast(*stash);
+	last_node = gft_lstlast(*stash);
 	last_node->next = new_node;
 }
 
-void	stash_to_line(t_list *stash, char **line)
+void	stash_to_line(g_list *stash, char **line)
 {
 	int	i;
 	int	j;
@@ -115,18 +115,18 @@ void	stash_to_line(t_list *stash, char **line)
 	(*line)[j] = '\0';
 }
 
-void	clean(t_list **stash)
+void	clean(g_list **stash)
 {
-	t_list	*last_node;
-	t_list	*clean_node;
+	g_list	*last_node;
+	g_list	*clean_node;
 	int		i;
 	int		j;
 
-	clean_node = malloc(sizeof(t_list));
+	clean_node = malloc(sizeof(g_list));
 	if (!stash || !clean_node)
 		return ;
 	clean_node->next = NULL;
-	last_node = ft_lstlast(*stash);
+	last_node = gft_lstlast(*stash);
 	i = 0;
 	while (last_node->content[i] && last_node->content[i] != '\n')
 		i++;

@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:00:05 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/05 02:25:06 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/01 20:41:22 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,30 @@
 #  define BUFFER_SIZE 5
 # endif
 
-typedef struct s_list
+typedef struct g_list
 {
 	char			*content;
-	struct s_list	*next;
-}	t_list;
+	struct g_list	*next;
+}	g_list;
 
 char	*get_next_line(int fd);
 
-void	read_to_stash(int fd, t_list **stash);
+void	read_to_stash(int fd, g_list **stash);
 
-t_list	*ft_lstlast(t_list *list);
+g_list	*gft_lstlast(g_list *list);
 
-int		newline(t_list *stash);
+int		newline(g_list *stash);
 
-void	stash_to_line(t_list *stash, char **line);
+void	stash_to_line(g_list *stash, char **line);
 
-void	line_allocation(char **line, t_list *stash);
+void	line_allocation(char **line, g_list *stash);
 
 int		ft_strlen(const char *str);
 
-void	add(t_list **stash, char *buf, int already_read);
+void	add(g_list **stash, char *buf, int already_read);
 
-void	free_stash(t_list *stash);
+void	free_stash(g_list *stash);
 
-void	clean(t_list **stash);
+void	clean(g_list **stash);
 
 #endif
