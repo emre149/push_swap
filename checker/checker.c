@@ -6,17 +6,56 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:29:06 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/31 20:21:51 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/01 20:26:15 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <stdio.h>
+#include "gnl/get_next_line.h"
+#include "../push_swap.h"
+
+// void	checker(t_list **stack_a, t_list **stack_b, char *ligne)
+// {
+// 	int	state;
+// 	int	resultat;
+
+// 	resultat = 0;
+// 	while ((ligne = get_next_line(0) != NULL))
+// 	{
+// 		state = interpretor(stack_a, stack_b, ligne);
+// 		if (!state)
+// 			printf("Error, not an operation");
+// 		if (ft_strcmp(ligne, "Is that good ?") == 0)
+//             break;
+//         free(ligne);
+// 	}
+//     if (resultat == 0) {
+//         printf("KO\n");
+//     } else {
+//         printf("OK\n");
+//     }
+//     return 0;
+// }
 
 int	main(int argc, char **argv)
 {
-	if (argc == 2 || (argc == 2 && !argv[1][0]))
-		return (1);
-	else if (argc == 2)
-		argv = ft_split(argv[1], argv + 1);
-	ft_
+	int		resultat;
+	char	*ligne;
+	
+	(void)argc;
+	(void)argv;
+
+	resultat = 0;
+	while ((ligne = get_next_line(0) != NULL))
+	{
+		if (ft_strcmp(ligne, "Is that good ?") == 0)
+            break;
+        free(ligne);
+	}
+    if (resultat == 0) {
+        printf("KO\n");
+    } else {
+        printf("OK\n");
+    }
+    return 0;
 }
