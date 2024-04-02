@@ -6,16 +6,16 @@
 #    By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/25 18:03:52 by ededemog          #+#    #+#              #
-#    Updated: 2024/04/01 16:41:46 by ededemog         ###   ########.fr        #
+#    Updated: 2024/04/02 15:44:52 by ededemog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-NAME = push_swap
-SRCS = checker.c qdqfq.c utils.c gnl/get_next_line.c gnl/get_next_line_utils.c \
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -g
+NAME = checker
+SRCS = $(wildcard *.c gnl/*.c ../src/op/*.c ../src/*.c)
 OBJS = $(SRCS:.c=.o)
-MAIN_SRC = src/main/push_swap.c
+MAIN_SRC = main/checker.c
 MAIN_OBJ = $(MAIN_SRC:.c=.o)
 
 all: $(NAME)
