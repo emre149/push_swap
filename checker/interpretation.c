@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 20:18:37 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/02 15:20:24 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/04 22:48:30 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static bool handle_swap(t_list **stack_a, t_list **stack_b, char *ligne)
 	}
     else if (ft_strcmp(ligne, "pb") == 0)
 	{
-        pb(stack_a, stack_b, true);
+        pb(stack_b, stack_a, true);
 		return (true);
 	}
 	return (false);
