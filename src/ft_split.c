@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:14:17 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/31 18:21:34 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/08 18:41:09 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ static char	*get_next_word(char *str, char delimeter)
 	return (next);
 }
 
+static void	error_underscore(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
 char	**ft_split(char *str, char delimeter)
 {
 	char	**result_array;
@@ -67,7 +73,7 @@ char	**ft_split(char *str, char delimeter)
 	i = 0;
 	words_count = count_words(str, delimeter);
 	if (!words_count)
-		exit(1);
+		error_underscore();
 	result_array = malloc (sizeof(char *) * (size_t)(words_count + 2));
 	if (!result_array)
 		return (NULL);

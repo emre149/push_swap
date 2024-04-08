@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:00:18 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/08 16:43:49 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/08 18:26:14 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static gt_list	*stash = NULL;
+	static t_listt	*stash = NULL;
 	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
@@ -35,7 +35,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-void	read_to_stash(int fd, gt_list **stash)
+void	read_to_stash(int fd, t_listt **stash)
 {
 	char	*buf;
 	int		readed;
@@ -58,14 +58,14 @@ void	read_to_stash(int fd, gt_list **stash)
 	}
 }
 
-void	add(gt_list **stash, char *buf, int already_read)
+void	add(t_listt **stash, char *buf, int already_read)
 {
 	int		i;
-	gt_list	*last_node;
-	gt_list	*new_node;
+	t_listt	*last_node;
+	t_listt	*new_node;
 
 	i = 0;
-	new_node = malloc(sizeof(gt_list));
+	new_node = malloc(sizeof(t_listt));
 	if (!new_node)
 		return ;
 	new_node->next = NULL;
@@ -87,7 +87,7 @@ void	add(gt_list **stash, char *buf, int already_read)
 	last_node->next = new_node;
 }
 
-void	stash_to_line(gt_list *stash, char **line)
+void	stash_to_line(t_listt *stash, char **line)
 {
 	int	i;
 	int	j;
@@ -115,14 +115,14 @@ void	stash_to_line(gt_list *stash, char **line)
 	(*line)[j] = '\0';
 }
 
-void	clean(gt_list **stash)
+void	clean(t_listt **stash)
 {
-	gt_list	*last_node;
-	gt_list	*clean_node;
+	t_listt	*last_node;
+	t_listt	*clean_node;
 	int		i;
 	int		j;
 
-	clean_node = malloc(sizeof(gt_list));
+	clean_node = malloc(sizeof(t_listt));
 	if (!stash || !clean_node)
 		return ;
 	clean_node->next = NULL;

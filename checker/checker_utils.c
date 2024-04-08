@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 20:36:17 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/08 17:05:38 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/08 18:27:03 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	ft_strcmp(const char *first, const char *second)
 		i++;
 	}
 	if (first[i] == '\n' && second[i] == '\0')
-		return 0;
+		return (0);
 	if (first[i] == '\0' && second[i] == '\n')
-		return 0;
+		return (0);
 	return (first[i] - second[i]);
 }

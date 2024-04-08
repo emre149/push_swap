@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:00:05 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/08 16:43:07 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/08 18:26:06 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,26 @@ typedef struct g_list
 {
 	char			*content;
 	struct g_list	*next;
-}	gt_list;
+}	t_listt;
 
 char	*get_next_line(int fd);
 
-void	read_to_stash(int fd, gt_list **stash);
+void	read_to_stash(int fd, t_listt **stash);
 
-gt_list	*gft_lstlast(gt_list *list);
+t_listt	*gft_lstlast(t_listt *list);
 
-int		newline(gt_list *stash);
+int		newline(t_listt *stash);
 
-void	stash_to_line(gt_list *stash, char **line);
+void	stash_to_line(t_listt *stash, char **line);
 
-void	line_allocation(char **line, gt_list *stash);
+void	line_allocation(char **line, t_listt *stash);
 
 int		ft_strlen(const char *str);
 
-void	add(gt_list **stash, char *buf, int already_read);
+void	add(t_listt **stash, char *buf, int already_read);
 
-void	free_stash(gt_list *stash);
+void	free_stash(t_listt *stash);
 
-void	clean(gt_list **stash);
+void	clean(t_listt **stash);
 
 #endif
