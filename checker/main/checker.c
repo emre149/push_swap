@@ -6,11 +6,10 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:29:06 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/02 15:46:18 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:28:02 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../gnl/get_next_line.h"
 #include "../../push_swap.h"
 
@@ -44,7 +43,10 @@ int	main(int argc, char **argv)
 				write(1, "Error\n", 6);
 		}
         free(ligne);
+		ligne = NULL;
 	}
+	if (argc == 2)
+		free_split(argv);
 	free_stacks(&stack_a);
-    return 0;
+	return (0);
 }

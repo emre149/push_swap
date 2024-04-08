@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:30:09 by ededemog          #+#    #+#             */
-/*   Updated: 2024/03/31 18:21:19 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:22:39 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,10 @@ void		split_to_stack(t_list **stack_a, char **argv);
 void		free_split(char **array);
 long		ft_atol(const char *str);
 char		**ft_split(char *str, char delimeter);
+
+/* CHECKER */
+
+int			ft_strcmp(const char *first, const char *second);
+int 		interpretor(t_list **stack_a, t_list **stack_b, char *ligne);
+
 #endif

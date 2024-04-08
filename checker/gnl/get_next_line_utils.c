@@ -6,16 +6,16 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:00:29 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/01 20:41:36 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:43:40 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	newline(g_list *stash)
+int	newline(gt_list *stash)
 {
 	int		i;
-	g_list	*current;
+	gt_list	*current;
 
 	if (stash == NULL)
 		return (0);
@@ -30,14 +30,14 @@ int	newline(g_list *stash)
 	return (0);
 }
 
-g_list	*gft_lstlast(g_list *list)
+gt_list	*gft_lstlast(gt_list *list)
 {
 	while (list && list->next)
 		list = list->next;
 	return (list);
 }
 
-void	line_allocation(char **line, g_list *stash)
+void	line_allocation(char **line, gt_list *stash)
 {
 	int	i;
 	int	len;
@@ -63,10 +63,10 @@ void	line_allocation(char **line, g_list *stash)
 
 /* Frees the entire stash. */
 
-void	free_stash(g_list *stash)
+void	free_stash(gt_list *stash)
 {
-	g_list	*current;
-	g_list	*next;
+	gt_list	*current;
+	gt_list	*next;
 
 	current = stash;
 	while (current)

@@ -6,11 +6,10 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 20:36:17 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/01 20:40:40 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:05:38 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "gnl/get_next_line.h"
 #include "../push_swap.h"
 
@@ -31,43 +30,3 @@ int	ft_strcmp(const char *first, const char *second)
 		return 0;
 	return (first[i] - second[i]);
 }
-
-
-// void	checker(t_list **stack_a, t_list **stack_b, char *ligne)
-// {
-// 	int	state;
-// 	int	resultat;
-
-// 	resultat = 0;
-// 	while ((ligne = get_next_line(0) != NULL))
-// 	{
-// 		state = interpretor(stack_a, stack_b, ligne);
-// 		if (!state)
-// 			printf("Error, not an operation");
-// 		if (ft_strcmp(ligne, "Is that good ?") == 0)
-//             break;
-//         free(ligne);
-// 	}
-//     if (resultat == 0) {
-//         printf("KO\n");
-//     } else {
-//         printf("OK\n");
-//     }
-//     return 0;
-// }
-
-// int	main(int argc, char **argv)
-// {
-// 	(void)argc;
-// 	(void)argv;
-
-// 	t_list	*stack_a;
-// 	t_list	*stack_b;
-// 	char	*ligne;
-
-// 	stack_a = NULL;
-// 	stack_b = NULL;
-// 	ligne = NULL;
-// 	checker(stack_a, stack_b, ligne);
-// 	return (0);
-// }

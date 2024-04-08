@@ -6,11 +6,10 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 20:18:37 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/04 22:48:30 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:04:57 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "gnl/get_next_line.h"
 #include "../push_swap.h"
 
